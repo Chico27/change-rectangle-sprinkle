@@ -20,7 +20,7 @@ window.onload = function() {
     const div2 = document.createElement('div');
     document.body.appendChild(div2);
   }
-  sprinkle();
+  // sprinkle();
 }
 
 function sprinkle(){
@@ -30,16 +30,17 @@ function sprinkle(){
   let colorString = setColor();
   while(ct <= maxRectangle){
     let colorString = setColor();
-    // randomNum = Math.random();
-    // if (randomNum < 0.5){
-      let attr = document.getElementById("black_rectangele_" + ct);
-      // if (!attr.classList.contains('box_disappear')) {
-        attr.style.background = colorString;
-        console.log(colorString);
-      // } else {
-      //   attr.classList.remove("box_disappear");
-      // }
-    // }
+    let attr = document.getElementById("black_rectangele_" + ct);
+    attr.style.background = colorString;
+    randomNum = Math.random();
+    if (randomNum < 0.5){
+      if (!attr.classList.contains('box_disappear')) {
+        attr.classList.add("box_disappear");
+        attr.style.background = "#FFF";
+      } else {
+        attr.classList.remove("box_disappear");
+      }
+    }
     ct++;
   };
 }
